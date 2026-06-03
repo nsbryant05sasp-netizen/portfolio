@@ -58,12 +58,13 @@
   .hero-contact a { font-size: 13px; color: var(--teal-200); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
   .hero-contact a:hover { color: var(--white); }
 
-  .hero-right { background: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 120px 64px 80px 100px; }
-  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
-  .stat-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg); }
+  .hero-right { background: var(--white); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 64px 80px 100px; }
+  .profile-photo { width: 280px; height: 360px; border-radius: 16px; object-fit: cover; margin-bottom: 2rem; box-shadow: 0 16px 48px rgba(15,110,86,0.15); }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; width: 100%; max-width: 420px; }
+  .stat-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg); text-align: center; }
   .stat-number { font-family: var(--serif); font-size: 2.4rem; font-weight: 600; color: var(--teal-600); line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-  .hero-specialties { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hero-specialties { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
   .tag { display: inline-block; padding: 5px 14px; background: var(--accent-light); color: var(--teal-600); border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
   .tag.warm { background: var(--warm-50); color: var(--warm-400); }
 
@@ -173,7 +174,7 @@
   .hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
   .hero-eyebrow { animation-delay: 0.1s; } .hero-name { animation-delay: 0.2s; } .hero-credential { animation-delay: 0.3s; } .hero-tagline { animation-delay: 0.4s; } .hero-contact { animation-delay: 0.5s; }
   .hero-right > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-  .hero-stats { animation-delay: 0.35s; } .hero-specialties { animation-delay: 0.5s; }
+  .profile-photo { animation-delay: 0.2s; } .hero-stats { animation-delay: 0.35s; } .hero-specialties { animation-delay: 0.5s; }
 
   @media (max-width: 768px) {
     nav { display: none; }
@@ -218,6 +219,7 @@
     </div>
   </div>
   <div class="hero-right">
+    <img src="profile-photo.jpg" alt="Nyla S. Bryant, RN" class="profile-photo">
     <div class="hero-stats">
       <div class="stat-card">
         <div class="stat-number">3.92</div>
@@ -317,7 +319,7 @@
           <span class="badge badge-green">Expected April 2027</span>
           <span class="badge badge-gold">Presidential Scholarship (Full)</span>
           <span class="badge badge-gold">American Dream Scholarship (Full)</span>
-          <span class="badge badge-gray">Dean's List</span>
+          <span class="badge badge-gray">Dean's List (4x)</span>
           <span class="badge badge-gray">Phi Theta Kappa Honor Society</span>
         </div>
         <div style="margin-top:1.25rem;">
