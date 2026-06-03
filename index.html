@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyla S. Bryant, ASN, RN | Pediatric Nursing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-50: #E1F5EE;
+    --teal-100: #9FE1CB;
+    --teal-200: #5DCAA5;
+    --teal-400: #1D9E75;
+    --teal-600: #0F6E56;
+    --teal-800: #085041;
+    --teal-900: #04342C;
+    --slate-100: #EEF2F0;
+    --slate-200: #D4DDD9;
+    --slate-600: #4E6560;
+    --slate-800: #1E2E2A;
+    --warm-50: #FAEEE5;
+    --warm-400: #D4845A;
+    --accent: #1D9E75;
+    --accent-light: #E1F5EE;
+    --text-primary: #1E2E2A;
+    --text-secondary: #4E6560;
+    --text-muted: #8FA49B;
+    --border: #D4DDD9;
+    --bg: #F7F9F8;
+    --white: #ffffff;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text-primary); font-size: 15px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,249,248,0.93); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; color: var(--teal-600); letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a { display: block; padding: 6px 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-left { background: var(--teal-800); display: flex; flex-direction: column; justify-content: center; padding: 120px 64px 80px; position: relative; }
+  .hero-left::after { content: ''; position: absolute; top: 0; right: -60px; width: 120px; height: 100%; background: var(--teal-800); clip-path: polygon(0 0, 0 100%, 100% 100%); z-index: 1; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-200); margin-bottom: 1.5rem; }
+  .hero-name { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 0.4rem; }
+  .hero-name em { font-style: italic; color: var(--teal-100); }
+  .hero-credential { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--teal-200); margin-bottom: 2rem; }
+  .hero-tagline { font-size: 15px; font-weight: 300; color: var(--teal-100); line-height: 1.8; max-width: 360px; margin-bottom: 2.5rem; border-left: 2px solid var(--teal-400); padding-left: 1rem; }
+  .hero-contact { display: flex; flex-direction: column; gap: 8px; }
+  .hero-contact a { font-size: 13px; color: var(--teal-200); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
+  .hero-contact a:hover { color: var(--white); }
+
+  .hero-right { background: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 120px 64px 80px 100px; }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; }
+  .stat-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg); }
+  .stat-number { font-family: var(--serif); font-size: 2.4rem; font-weight: 600; color: var(--teal-600); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+  .hero-specialties { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { display: inline-block; padding: 5px 14px; background: var(--accent-light); color: var(--teal-600); border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
+  .tag.warm { background: var(--warm-50); color: var(--warm-400); }
+
+  section { padding: 96px 0; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 56px; }
+  .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+  .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; color: var(--text-primary); margin-bottom: 1rem; }
+
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-text p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 15.5px; }
+  .about-text strong { color: var(--text-primary); font-weight: 500; }
+  .values-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .value-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .value-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 7px; flex-shrink: 0; }
+  .value-item h4 { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+  .value-item p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+
+  #education { background: var(--bg); }
+  .edu-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 2.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
+  .edu-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .edu-degree { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .edu-school { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+  .edu-details { display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge { font-size: 12px; padding: 3px 10px; border-radius: 4px; font-weight: 500; }
+  .badge-green { background: var(--teal-50); color: var(--teal-600); }
+  .badge-gray { background: var(--slate-100); color: var(--slate-600); }
+  .badge-gold { background: #FEF3C7; color: #92400E; }
+  .edu-gpa { text-align: right; white-space: nowrap; }
+  .gpa-number { font-family: var(--serif); font-size: 2rem; font-weight: 600; color: var(--teal-600); line-height: 1; }
+  .gpa-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); }
+  .coursework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1rem; }
+  .course-item { font-size: 13px; color: var(--text-secondary); padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }
+
+  #rotations { background: var(--white); }
+  .rotations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .rotation-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg); transition: transform 0.2s, box-shadow 0.2s; }
+  .rotation-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(15,110,86,0.1); }
+  .rotation-header { padding: 1.25rem 1.5rem; background: var(--teal-800); color: var(--white); }
+  .rotation-header.alt { background: var(--teal-600); }
+  .rotation-header.alt2 { background: var(--slate-800); }
+  .rotation-unit { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; margin-bottom: 2px; }
+  .rotation-facility { font-size: 12px; opacity: 0.8; letter-spacing: 0.03em; }
+  .rotation-body { padding: 1.25rem 1.5rem; }
+  .rotation-meta { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+  .rotation-skills { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .rotation-skills li { font-size: 13px; color: var(--text-secondary); padding-left: 14px; position: relative; }
+  .rotation-skills li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+
+  #certifications { background: var(--bg); }
+  .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .cert-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color 0.2s; }
+  .cert-card:hover { border-color: var(--teal-200); }
+  .cert-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+  .cert-name { font-size: 14.5px; font-weight: 500; color: var(--text-primary); margin-bottom: 3px; }
+  .cert-issuer { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+  .cert-date { font-size: 12px; color: var(--accent); font-weight: 500; }
+
+  #leadership { background: var(--white); }
+  .timeline { position: relative; padding-left: 2.5rem; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 1px; background: var(--border); }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot { position: absolute; left: -2.5rem; top: 5px; width: 15px; height: 15px; border-radius: 50%; background: var(--white); border: 2px solid var(--accent); }
+  .timeline-date { font-size: 11.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .timeline-role { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+  .timeline-org { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; }
+  .timeline-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.75; }
+
+  #volunteer { background: var(--bg); }
+  .volunteer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .volunteer-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+  .volunteer-emoji { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .volunteer-role { font-size: 15px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; }
+  .volunteer-org { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
+  .volunteer-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.7; }
+  .volunteer-hours { margin-top: 1rem; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+
+  #goals { background: var(--teal-800); }
+  #goals .section-eyebrow { color: var(--teal-200); }
+  #goals .section-title { color: var(--white); }
+  #goals .section-line { background: rgba(255,255,255,0.15); }
+  .goals-intro { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; font-style: italic; color: var(--teal-100); line-height: 1.7; max-width: 700px; margin-bottom: 3rem; border-left: 2px solid var(--teal-400); padding-left: 1.5rem; }
+  .goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .goal-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 1.75rem; }
+  .goal-timeframe { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-200); font-weight: 500; margin-bottom: 1rem; }
+  .goal-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--white); margin-bottom: 0.75rem; line-height: 1.3; }
+  .goal-desc { font-size: 13.5px; color: var(--teal-100); line-height: 1.75; }
+
+  #resume { background: var(--white); }
+  .resume-inner { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; border: 1px solid var(--border); border-radius: 20px; padding: 3rem; background: var(--bg); }
+  .resume-text h2 { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--text-primary); margin-bottom: 0.75rem; }
+  .resume-text p { color: var(--text-secondary); max-width: 520px; line-height: 1.7; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .btn-primary { background: var(--teal-600); color: var(--white); border: none; }
+  .btn-primary:hover { background: var(--teal-800); }
+  .btn-outline { background: transparent; color: var(--teal-600); border: 1.5px solid var(--teal-200); }
+  .btn-outline:hover { background: var(--accent-light); }
+  .btn-group { display: flex; flex-direction: column; gap: 10px; }
+
+  footer { background: var(--slate-800); color: rgba(255,255,255,0.5); text-align: center; padding: 2rem; font-size: 13px; }
+  footer a { color: var(--teal-200); text-decoration: none; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .hero-eyebrow { animation-delay: 0.1s; } .hero-name { animation-delay: 0.2s; } .hero-credential { animation-delay: 0.3s; } .hero-tagline { animation-delay: 0.4s; } .hero-contact { animation-delay: 0.5s; }
+  .hero-right > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .hero-stats { animation-delay: 0.35s; } .hero-specialties { animation-delay: 0.5s; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 80px 32px 60px; } .hero-left::after { display: none; }
+    .hero-right { padding: 48px 32px; }
+    .about-grid, .rotations-grid, .certs-grid, .volunteer-grid, .goals-grid { grid-template-columns: 1fr; }
+    .edu-card { grid-template-columns: 1fr; }
+    .container { padding: 0 24px; } section { padding: 60px 0; }
+    .resume-inner { grid-template-columns: 1fr; }
+    .coursework-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Nyla S. Bryant, ASN, RN</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#rotations">Rotations</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#resume">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Pediatric Nursing Portfolio</p>
+    <h1 class="hero-name">Nyla S.<br><em>Bryant</em></h1>
+    <p class="hero-credential">ASN, RN &nbsp;·&nbsp; BSN Candidate 2027</p>
+    <p class="hero-tagline">A scholarship-honored new graduate nurse with clinical experience across medical-surgical, psychiatric, rehabilitation, and pediatric settings — seeking a pediatric nurse residency where compassionate, family-centered care meets lifelong purpose.</p>
+    <div class="hero-contact">
+      <a href="mailto:nsbryant05sasp@gmail.com">✉ nsbryant05sasp@gmail.com</a>
+      <a href="tel:+17863821399">✆ (786) 382-1399 &nbsp;·&nbsp; Homestead, FL</a>
+      <a href="#">FL RN License #RN9709392 — Active</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-number">3.92</div>
+        <div class="stat-label">BSN Program GPA</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Volunteer Hours</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Clinical Sites</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Full Scholarships</div>
+      </div>
+    </div>
+    <div class="hero-specialties">
+      <span class="tag">Pediatric Care</span>
+      <span class="tag">Med-Surg</span>
+      <span class="tag">Psychiatric Nursing</span>
+      <span class="tag">Rehabilitation</span>
+      <span class="tag warm">BLS / CPR Certified</span>
+      <span class="tag warm">Active FL RN License</span>
+      <span class="tag">Phi Theta Kappa</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">01 &nbsp;/&nbsp; About Me</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Driven by purpose. Grounded in community.</h2>
+        <p>I am Nyla S. Bryant — a new graduate Registered Nurse from Homestead, FL, with an active Florida RN license and a deep commitment to pediatric and community-centered care. My path into nursing was shaped by a genuine belief that every patient, especially every child, deserves a nurse who sees them fully — not just their diagnosis.</p>
+        <p>I completed my <strong>Associate of Science in Nursing at Miami Dade College's Benjamin Leon School of Nursing</strong> in December 2025, and I am currently continuing toward my <strong>Bachelor of Science in Nursing</strong>, expected April 2027, with a 3.92 GPA. I was honored to receive three full scholarships — the Presidential Scholarship, the American Dream Scholarship, and the DeLuca ADN Nursing Scholarship — reflecting both my academic dedication and my investment in serving others.</p>
+        <p>My clinical rotations took me across six Miami-Dade healthcare facilities, where I practiced in medical-surgical, psychiatric, rehabilitation, and pediatric settings. These experiences gave me a broad clinical foundation while affirming that pediatric nursing is where I am most called to serve.</p>
+        <p>Before nursing, I invested years in youth-focused work — from tutoring young children as an AmeriCorps Early Learning Tutor to leading enrichment programs through Miami-Dade County Parks and Recreation. Those years taught me the developmental nuance, patience, and warmth that I now bring directly to my pediatric patients and their families.</p>
+      </div>
+      <div>
+        <h3 style="font-family:var(--serif); font-size:1.3rem; font-weight:600; color:var(--text-primary); margin-bottom:1.5rem;">What I bring to every shift</h3>
+        <ul class="values-list">
+          <li class="value-item">
+            <div class="value-dot"></div>
+            <div>
+              <h4>Therapeutic Communication</h4>
+              <p>Honed across psychiatric, pediatric, and rehabilitation settings — I meet patients and families where they are, adapting my approach to build trust quickly.</p>
+            </div>
+          </li>
+          <li class="value-item">
+            <div class="value-dot"></div>
+            <div>
+              <h4>Child & Family-Centered Care</h4>
+              <p>My background in early childhood education and youth programming shapes how I approach pediatric patients — with developmental sensitivity and genuine warmth.</p>
+            </div>
+          </li>
+          <li class="value-item">
+            <div class="value-dot"></div>
+            <div>
+              <h4>Safety & Clinical Vigilance</h4>
+              <p>Trained in patient safety, infection prevention, HIPAA compliance, and interdisciplinary collaboration — I treat each assessment as consequential.</p>
+            </div>
+          </li>
+          <li class="value-item">
+            <div class="value-dot"></div>
+            <div>
+              <h4>Community & Health Equity</h4>
+              <p>Over 200 volunteer hours across Homestead and Miami underscore my belief that healthcare is a right — and that nurses are uniquely positioned to advance equity.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">02 &nbsp;/&nbsp; Education</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Nursing (BSN) — In Progress</div>
+        <div class="edu-school">Miami Dade College, Benjamin Leon School of Nursing &nbsp;·&nbsp; Miami, FL</div>
+        <div class="edu-details">
+          <span class="badge badge-green">Expected April 2027</span>
+          <span class="badge badge-gold">Presidential Scholarship (Full)</span>
+          <span class="badge badge-gold">American Dream Scholarship (Full)</span>
+          <span class="badge badge-gray">Dean's List</span>
+          <span class="badge badge-gray">Phi Theta Kappa Honor Society</span>
+        </div>
+        <div style="margin-top:1.25rem;">
+          <p style="font-size:13px; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Advanced BSN Coursework</p>
+          <div class="coursework-grid">
+            <div class="course-item">Nursing Research & EBP</div>
+            <div class="course-item">Community Health Nursing</div>
+            <div class="course-item">Nursing Leadership & Management</div>
+            <div class="course-item">Advanced Pathophysiology</div>
+            <div class="course-item">Public & Population Health</div>
+            <div class="course-item">Professional Nursing Practice</div>
+          </div>
+        </div>
+      </div>
+      <div class="edu-gpa">
+        <div class="gpa-number">3.92</div>
+        <div class="gpa-label">GPA</div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">🏥</div>
+      <div>
+        <div class="edu-degree">Associate of Science in Nursing (ASN/ADN)</div>
+        <div class="edu-school">Miami Dade College, Benjamin Leon School of Nursing &nbsp;·&nbsp; Miami, FL</div>
+        <div class="edu-details">
+          <span class="badge badge-green">Graduated December 2025</span>
+          <span class="badge badge-gold">DeLuca ADN Nursing Scholarship ($5,000)</span>
+          <span class="badge badge-gray">FL RN License #RN9709392 — Active</span>
+        </div>
+        <div style="margin-top:1.25rem;">
+          <p style="font-size:13px; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.75rem;">Core Nursing Coursework</p>
+          <div class="coursework-grid">
+            <div class="course-item">Medical-Surgical Nursing</div>
+            <div class="course-item">Psychiatric-Mental Health Nursing</div>
+            <div class="course-item">Pediatric Nursing</div>
+            <div class="course-item">Pharmacology</div>
+            <div class="course-item">Maternal-Newborn Nursing</div>
+            <div class="course-item">Rehabilitation Nursing</div>
+          </div>
+        </div>
+      </div>
+      <div class="edu-gpa">
+        <div class="gpa-number">3.39</div>
+        <div class="gpa-label">GPA</div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-icon">📘</div>
+      <div>
+        <div class="edu-degree">Associate in Arts (AA) — Pre-Nursing</div>
+        <div class="edu-school">Miami Dade College &nbsp;·&nbsp; Miami, FL</div>
+        <div class="edu-details">
+          <span class="badge badge-gray">Graduated May 2026</span>
+          <span class="badge badge-gray">Dean's List</span>
+          <span class="badge badge-gray">Phi Theta Kappa Honor Society</span>
+        </div>
+        <p style="font-size:13.5px; color:var(--text-secondary); margin-top:1rem; line-height:1.7;">Completed prerequisite sciences and general education requirements including Anatomy & Physiology I & II, Microbiology, Statistics, and Developmental Psychology in preparation for the competitive nursing program.</p>
+      </div>
+      <div class="edu-gpa">
+        <div class="gpa-number">3.49</div>
+        <div class="gpa-label">GPA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL ROTATIONS -->
+<section id="rotations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">03 &nbsp;/&nbsp; Clinical Rotations</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="rotations-grid">
+
+      <div class="rotation-card">
+        <div class="rotation-header">
+          <div class="rotation-unit">Pediatric Nursing</div>
+          <div class="rotation-facility">Nicklaus Children's Hospital · Miami, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>June 2025 – July 2025</span></div>
+          <ul class="rotation-skills">
+            <li>Age-appropriate developmental assessments</li>
+            <li>Pediatric medication administration & safety</li>
+            <li>Family education and discharge planning</li>
+            <li>Pain scale use (FLACC, Wong-Baker FACES)</li>
+            <li>Child life-informed care coordination</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rotation-card">
+        <div class="rotation-header alt">
+          <div class="rotation-unit">Medical-Surgical Nursing</div>
+          <div class="rotation-facility">Baptist Health Hospital · Miami, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>Jan 2025 – March 2025</span></div>
+          <ul class="rotation-skills">
+            <li>Head-to-toe physical assessments</li>
+            <li>IV access, blood draws, wound care</li>
+            <li>Medication administration & reconciliation</li>
+            <li>Fall prevention & hourly rounding protocols</li>
+            <li>EHR documentation & HIPAA compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rotation-card">
+        <div class="rotation-header alt2">
+          <div class="rotation-unit">Psychiatric Nursing</div>
+          <div class="rotation-facility">Homestead Behavioral Clinic · Homestead, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>March 2025 – May 2025</span></div>
+          <ul class="rotation-skills">
+            <li>Therapeutic communication with diverse populations</li>
+            <li>Behavioral health safety monitoring</li>
+            <li>De-escalation and milieu management</li>
+            <li>Mental status exams & documentation</li>
+            <li>Care planning in interdisciplinary teams</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rotation-card">
+        <div class="rotation-header">
+          <div class="rotation-unit">Rehabilitation Nursing</div>
+          <div class="rotation-facility">Encompass Rehabilitation · Miami-Dade, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>Oct 2024 – Dec 2024</span></div>
+          <ul class="rotation-skills">
+            <li>Post-acute rehabilitation patient support</li>
+            <li>ADL assistance and functional goal tracking</li>
+            <li>Collaboration with PT, OT, and speech therapy</li>
+            <li>Skin integrity assessment & pressure ulcer prevention</li>
+            <li>Patient/family education on home safety</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rotation-card">
+        <div class="rotation-header alt">
+          <div class="rotation-unit">Medical-Surgical Nursing</div>
+          <div class="rotation-facility">Jackson South Medical Center · Miami, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>May 2025 – June 2025</span></div>
+          <ul class="rotation-skills">
+            <li>Direct patient care across diverse acuity levels</li>
+            <li>Vital signs monitoring & assessment trending</li>
+            <li>Infection prevention and standard precautions</li>
+            <li>Interdisciplinary SBAR communication</li>
+            <li>Patient education & discharge support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rotation-card">
+        <div class="rotation-header alt2">
+          <div class="rotation-unit">Nursing Leadership</div>
+          <div class="rotation-facility">HCA Florida Kendall Hospital · Miami, FL</div>
+        </div>
+        <div class="rotation-body">
+          <div class="rotation-meta"><span>Aug 2025 – Nov 2025</span></div>
+          <ul class="rotation-skills">
+            <li>Charge nurse workflow observation & shadowing</li>
+            <li>Delegation principles and team coordination</li>
+            <li>Quality improvement and unit safety culture</li>
+            <li>Staffing decisions and patient assignments</li>
+            <li>Staff communication and conflict navigation</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center; margin-top:2rem; font-size:13px; color:var(--text-muted); font-weight:500;">Clinical sites: <strong style="color:var(--accent);">Nicklaus Children's · Baptist Health · Jackson South · Homestead Behavioral Clinic · Encompass Rehabilitation · HCA Florida Kendall</strong></p>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">04 &nbsp;/&nbsp; Certifications & Licenses</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-icon">🏥</div>
+        <div>
+          <div class="cert-name">Registered Nurse (RN)</div>
+          <div class="cert-issuer">Florida Board of Nursing</div>
+          <div class="cert-date">License #RN9709392 · Active</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">❤️</div>
+        <div>
+          <div class="cert-name">Basic Life Support (BLS/CPR)</div>
+          <div class="cert-issuer">American Heart Association</div>
+          <div class="cert-date">Active Certification</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <div>
+          <div class="cert-name">Electronic Health Records (EHR)</div>
+          <div class="cert-issuer">Clinical Training — Multiple Systems</div>
+          <div class="cert-date">Practiced across 6 clinical facilities</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🔒</div>
+        <div>
+          <div class="cert-name">HIPAA Compliance Training</div>
+          <div class="cert-issuer">Miami Dade College Nursing Program</div>
+          <div class="cert-date">Completed as part of clinical preparation</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem; background:var(--white); border:1px solid var(--border); border-radius:14px; padding:1.75rem 2rem;">
+      <p style="font-size:13px; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem;">Clinical Skills Competencies</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span class="tag">Patient Assessment</span>
+        <span class="tag">Vital Signs Monitoring</span>
+        <span class="tag">Medication Administration</span>
+        <span class="tag">IV Therapy</span>
+        <span class="tag">Clinical Documentation</span>
+        <span class="tag">Patient Education</span>
+        <span class="tag">Infection Prevention</span>
+        <span class="tag">Safety Monitoring</span>
+        <span class="tag">Therapeutic Communication</span>
+        <span class="tag">Interdisciplinary Collaboration</span>
+        <span class="tag">Care Coordination</span>
+        <span class="tag">Behavioral Health Support</span>
+        <span class="tag">Rehabilitation Support</span>
+        <span class="tag">Time Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">05 &nbsp;/&nbsp; Work & Leadership Experience</span>
+      <div class="section-line"></div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px;">
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jan 2024 – Jun 2024</div>
+          <div class="timeline-role">AmeriCorps Early Learning Tutor</div>
+          <div class="timeline-org">Colonial Drive Elementary School · Miami, FL</div>
+          <p class="timeline-desc">Supported early literacy, developmental readiness, and age-appropriate learning activities for children ages 3–5. Built positive, trusting relationships with children, families, teachers, and staff while maintaining a safe, organized, and nurturing learning environment. This role deepened my ability to communicate therapeutically with young children — a skill I apply directly in pediatric clinical settings.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jul 2021 – Jun 2023</div>
+          <div class="timeline-role">Fit2Lead Paid Intern</div>
+          <div class="timeline-org">Miami-Dade County Parks and Recreation · Miami, FL</div>
+          <p class="timeline-desc">Supported youth programs, enrichment activities, and participant supervision for children and families across Miami-Dade recreational sites. Assisted with program communications, event setup, and daily operations while maintaining a safe, engaging environment. Developed strong organizational, communication, and youth engagement skills foundational to nursing leadership.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2024 – 2025</div>
+          <div class="timeline-role">Nursing Leadership Clinical Rotation</div>
+          <div class="timeline-org">HCA Florida Kendall Hospital · Miami, FL</div>
+          <p class="timeline-desc">Completed dedicated nursing leadership rotation, shadowing charge nurses in delegation, team coordination, patient assignment decisions, and quality improvement initiatives. Gained firsthand understanding of unit operations, staff communication, and the systemic factors shaping patient safety and care quality.</p>
+        </div>
+
+      </div>
+
+      <div>
+        <h3 style="font-family:var(--serif); font-size:1.3rem; font-weight:600; margin-bottom:1.5rem; color:var(--text-primary);">Awards & Honors</h3>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">🏆 Presidential Scholarship</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Full scholarship + stipend — awarded for outstanding academic achievement and demonstrated potential for leadership in nursing.</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">🏆 American Dream Scholarship</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Full scholarship recognizing academic excellence and commitment to community service in healthcare education.</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">💰 DeLuca ADN Nursing Scholarship ($5,000)</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Merit-based scholarship awarded to nursing students demonstrating exceptional academic performance and dedication to the profession.</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">🌟 ESA Youth Scholarship Program — 2nd Place ($1,500)</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Recognized for outstanding essay and demonstrated commitment to education and community advancement.</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">📚 Phi Theta Kappa International Honor Society</div>
+            <div style="font-size:13px; color:var(--text-secondary);">Inducted based on academic excellence — top 10% of community college students nationwide.</div>
+          </div>
+          <div style="border:1px solid var(--border); border-radius:12px; padding:1.25rem; background:var(--bg);">
+            <div style="font-size:14px; font-weight:500; color:var(--text-primary); margin-bottom:3px;">🎖 AmeriCorps Education Award ($1,459)</div>
+            <div style="font-size:13px; color:var(--text-secondary);">National service award earned through completion of AmeriCorps Early Learning Tutor program at Colonial Drive Elementary.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">06 &nbsp;/&nbsp; Volunteer Work</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="volunteer-grid">
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">🐾</span>
+        <div class="volunteer-role">Community Health Outreach Volunteer</div>
+        <div class="volunteer-org">P.A.T.C.H.E.S.</div>
+        <p class="volunteer-desc">Provided hands-on community health and outreach support, connecting underserved community members with health education, resources, and services. Strengthened patient advocacy and health promotion skills aligned with nursing values.</p>
+        <div class="volunteer-hours">⏱ Part of 200+ total volunteer hours</div>
+      </div>
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">💗</span>
+        <div class="volunteer-role">Health Education Volunteer</div>
+        <div class="volunteer-org">Women's Breast and Heart Initiative</div>
+        <p class="volunteer-desc">Supported breast and heart health awareness campaigns targeting underserved women in the Miami area. Assisted with health screenings, educational materials, and event coordination — applying patient education skills directly in a community setting.</p>
+        <div class="volunteer-hours">⏱ Part of 200+ total volunteer hours</div>
+      </div>
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">🧘</span>
+        <div class="volunteer-role">Community Wellness Volunteer</div>
+        <div class="volunteer-org">Lululemon Community Events</div>
+        <p class="volunteer-desc">Participated in community wellness events promoting physical and mental health. Engaged with diverse community members around self-care and healthy lifestyle practices — reinforcing the nurse's role as a holistic health educator beyond the clinical setting.</p>
+        <div class="volunteer-hours">⏱ Part of 200+ total volunteer hours</div>
+      </div>
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">🎨</span>
+        <div class="volunteer-role">Youth Program Counselor</div>
+        <div class="volunteer-org">ArtSouth Summer Camp · Homestead, FL</div>
+        <p class="volunteer-desc">Mentored and supervised youth during a summer arts camp in Homestead, facilitating creative activities and maintaining a safe, inclusive environment. Deepened skills in child engagement, behavioral redirection, and developmental communication essential to pediatric nursing.</p>
+        <div class="volunteer-hours">⏱ Part of 200+ total volunteer hours</div>
+      </div>
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">🌱</span>
+        <div class="volunteer-role">Community Engagement Volunteer</div>
+        <div class="volunteer-org">Catalyst Miami</div>
+        <p class="volunteer-desc">Supported Catalyst Miami's mission of building community power and civic leadership among underserved Miami-Dade residents. Contributed to events and initiatives promoting economic opportunity, health equity, and neighborhood empowerment.</p>
+        <div class="volunteer-hours">⏱ Part of 200+ total volunteer hours</div>
+      </div>
+
+      <div class="volunteer-card">
+        <span class="volunteer-emoji">⭐</span>
+        <div class="volunteer-role">Collective Impact</div>
+        <div class="volunteer-org">All Organizations Combined</div>
+        <p class="volunteer-desc">Across P.A.T.C.H.E.S., Women's Breast and Heart Initiative, Lululemon, ArtSouth, and Catalyst Miami — over 200 volunteer hours dedicated to community health education, youth engagement, wellness promotion, and civic service throughout South Florida.</p>
+        <div class="volunteer-hours">⏱ 200+ hours total · 2021 – Present</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">07 &nbsp;/&nbsp; Professional Goals</span>
+      <div class="section-line"></div>
+    </div>
+    <p class="goals-intro">"I entered nursing because I believe every child deserves a nurse who shows up fully — with skill, with presence, and with heart. My goals are built around growing into that nurse, one patient at a time."</p>
+    <div class="goals-grid">
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Short-Term · Year 1</div>
+        <div class="goal-title">Complete a Pediatric Nurse Residency</div>
+        <p class="goal-desc">Transition confidently into a structured pediatric residency program, building clinical mastery, deepening my unit-specific skills, and absorbing mentorship from experienced pediatric nurses. My goal is to provide safe, compassionate, independent care to pediatric patients across a range of acuity levels.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Mid-Term · Years 2–3</div>
+        <div class="goal-title">Complete BSN & Pursue CPN Certification</div>
+        <p class="goal-desc">Finish my BSN at Miami Dade College by April 2027 while practicing as a pediatric RN. Simultaneously accumulate the clinical hours needed to sit for the Certified Pediatric Nurse (CPN) exam through PNCB — a credential that signals deep commitment to excellence in child health.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Mid-Term · Years 2–4</div>
+        <div class="goal-title">Specialize in Pediatric Oncology or PICU</div>
+        <p class="goal-desc">Deepen my expertise in the pediatric subspecialties where compassionate, highly skilled nursing makes the most profound difference — oncology or critical care. These settings demand everything a nurse has, and I want to be fully prepared to give it.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Long-Term · Years 4–7</div>
+        <div class="goal-title">Advance into Clinical Education or Leadership</div>
+        <p class="goal-desc">Pursue a charge nurse or clinical educator role — mentoring new graduates the way I hope to be mentored now, and driving evidence-based practice improvements at the unit level. My leadership background in youth programming has prepared me to invest in others' development.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Ongoing</div>
+        <div class="goal-title">Champion Pediatric Health Equity</div>
+        <p class="goal-desc">Drawing on my roots in Homestead and my community volunteer experience, I plan to advocate within my institution for culturally competent, equitable pediatric care — ensuring that underserved children and families receive the same quality of attention and resources as any other patient.</p>
+      </div>
+
+      <div class="goal-card">
+        <div class="goal-timeframe">Ongoing</div>
+        <div class="goal-title">Stay Grounded in Evidence-Based Practice</div>
+        <p class="goal-desc">Remain engaged with current nursing research, attend professional development opportunities, and contribute to unit-based quality improvement. My 3.92 GPA reflects a genuine love of learning — one I intend to carry into every year of my nursing career.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="resume">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">08 &nbsp;/&nbsp; Resume & Contact</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="resume-inner">
+      <div class="resume-text">
+        <h2>Let's connect about residency opportunities</h2>
+        <p>I am actively seeking pediatric nurse residency programs in the Miami-Dade and South Florida area. I welcome conversations about your team's culture, residency structure, and how I might contribute. Please feel free to reach out by phone or email — I respond promptly and am available for interviews at your convenience.</p>
+        <div style="margin-top:1.5rem; display:flex; gap:1.5rem; flex-wrap:wrap;">
+          <div style="font-size:13.5px; color:var(--text-secondary);">📧 nsbryant05sasp@gmail.com</div>
+          <div style="font-size:13.5px; color:var(--text-secondary);">📞 (786) 382-1399</div>
+          <div style="font-size:13.5px; color:var(--text-secondary);">📍 Homestead, FL</div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-primary" href="#">⬇ Download Resume (PDF)</a>
+        <a class="btn btn-outline" href="mailto:nsbryant05sasp@gmail.com">✉ Send Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Nyla S. Bryant, ASN, RN &nbsp;·&nbsp; Florida RN License #RN9709392 &nbsp;·&nbsp; <a href="mailto:nsbryant05sasp@gmail.com">nsbryant05sasp@gmail.com</a> &nbsp;·&nbsp; (786) 382-1399</p>
+  <p style="margin-top:6px; font-size:12px; opacity:0.6;">Homestead, FL &nbsp;·&nbsp; Portfolio updated June 2025</p>
+</footer>
+
+</body>
+</html>
