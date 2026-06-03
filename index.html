@@ -46,7 +46,7 @@
   .nav-links a { display: block; padding: 6px 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; border-radius: 4px; transition: color 0.2s, background 0.2s; }
   .nav-links a:hover { color: var(--accent); background: var(--accent-light); }
 
-  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; position: relative; overflow: hidden; }
   .hero-left { background: var(--teal-800); display: flex; flex-direction: column; justify-content: center; padding: 120px 64px 80px; position: relative; }
   .hero-left::after { content: ''; position: absolute; top: 0; right: -60px; width: 120px; height: 100%; background: var(--teal-800); clip-path: polygon(0 0, 0 100%, 100% 100%); z-index: 1; }
   .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal-200); margin-bottom: 1.5rem; }
@@ -58,15 +58,13 @@
   .hero-contact a { font-size: 13px; color: var(--teal-200); text-decoration: none; letter-spacing: 0.03em; transition: color 0.2s; }
   .hero-contact a:hover { color: var(--white); }
 
-  .hero-right { background: var(--white); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 64px 80px 100px; }
-  .profile-photo { width: 280px; height: 360px; border-radius: 16px; object-fit: cover; margin-bottom: 2rem; box-shadow: 0 16px 48px rgba(15,110,86,0.15); }
-  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; width: 100%; max-width: 420px; }
-  .stat-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; background: var(--bg); text-align: center; }
-  .stat-number { font-family: var(--serif); font-size: 2.4rem; font-weight: 600; color: var(--teal-600); line-height: 1; margin-bottom: 4px; }
-  .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-  .hero-specialties { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-  .tag { display: inline-block; padding: 5px 14px; background: var(--accent-light); color: var(--teal-600); border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; }
-  .tag.warm { background: var(--warm-50); color: var(--warm-400); }
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem; width: 100%; max-width: 600px; margin-top: 2rem; }
+  .stat-card { border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 1.25rem; background: rgba(255,255,255,0.06); text-align: center; }
+  .stat-number { font-family: var(--serif); font-size: 2.4rem; font-weight: 600; color: var(--teal-100); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal-200); }
+  .hero-specialties { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
+  .tag { display: inline-block; padding: 5px 14px; background: rgba(255,255,255,0.12); color: var(--teal-100); border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: 0.04em; border: 1px solid rgba(255,255,255,0.2); }
+  .tag.warm { background: rgba(212,132,90,0.15); color: #FFB87D; border-color: rgba(212,132,90,0.3); }
 
   section { padding: 96px 0; }
   .container { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
@@ -114,7 +112,7 @@
   .rotation-meta { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 12px; color: var(--text-muted); font-weight: 500; }
   .rotation-skills { list-style: none; display: flex; flex-direction: column; gap: 6px; }
   .rotation-skills li { font-size: 13px; color: var(--text-secondary); padding-left: 14px; position: relative; }
-  .rotation-skills li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+  .rotation-skills li::before { content: '\u2192'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
 
   #certifications { background: var(--bg); }
   .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
@@ -173,19 +171,19 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
   .hero-eyebrow { animation-delay: 0.1s; } .hero-name { animation-delay: 0.2s; } .hero-credential { animation-delay: 0.3s; } .hero-tagline { animation-delay: 0.4s; } .hero-contact { animation-delay: 0.5s; }
-  .hero-right > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-  .profile-photo { animation-delay: 0.2s; } .hero-stats { animation-delay: 0.35s; } .hero-specialties { animation-delay: 0.5s; }
+  .hero-stats { animation: fadeUp 0.7s ease 0.35s forwards; opacity: 0; }
+  .hero-specialties { animation: fadeUp 0.7s ease 0.5s forwards; opacity: 0; }
 
   @media (max-width: 768px) {
     nav { display: none; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 80px 32px 60px; } .hero-left::after { display: none; }
-    .hero-right { padding: 48px 32px; }
     .about-grid, .rotations-grid, .certs-grid, .volunteer-grid, .goals-grid { grid-template-columns: 1fr; }
     .edu-card { grid-template-columns: 1fr; }
     .container { padding: 0 24px; } section { padding: 60px 0; }
     .resume-inner { grid-template-columns: 1fr; }
     .coursework-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -214,16 +212,13 @@
     <p class="hero-tagline">A scholarship-honored new graduate nurse with clinical experience across medical-surgical, psychiatric, rehabilitation, and pediatric settings — seeking a pediatric nurse residency where compassionate, family-centered care meets lifelong purpose.</p>
     <div class="hero-contact">
       <a href="mailto:nsbryant05sasp@gmail.com">✉ nsbryant05sasp@gmail.com</a>
-      <a href="tel:+17863821399">✆ (786) 382-1399 &nbsp;·&nbsp; Homestead, FL</a>
+      <a href="tel:+17863821399">☎ (786) 382-1399 &nbsp;·&nbsp; Homestead, FL</a>
       <a href="#">FL RN License #RN9709392 — Active</a>
     </div>
-  </div>
-  <div class="hero-right">
-    <img src="profile-photo.jpg" alt="Nyla S. Bryant, RN" class="profile-photo">
     <div class="hero-stats">
       <div class="stat-card">
         <div class="stat-number">3.92</div>
-        <div class="stat-label">BSN Program GPA</div>
+        <div class="stat-label">BSN GPA</div>
       </div>
       <div class="stat-card">
         <div class="stat-number">200+</div>
@@ -235,7 +230,7 @@
       </div>
       <div class="stat-card">
         <div class="stat-number">3</div>
-        <div class="stat-label">Full Scholarships</div>
+        <div class="stat-label">Scholarships</div>
       </div>
     </div>
     <div class="hero-specialties">
@@ -369,7 +364,7 @@
     </div>
 
     <div class="edu-card">
-      <div class="edu-icon">📘</div>
+      <div class="edu-icon">📚</div>
       <div>
         <div class="edu-degree">Associate in Arts (AA) — Pre-Nursing</div>
         <div class="edu-school">Miami Dade College &nbsp;·&nbsp; Miami, FL</div>
@@ -541,7 +536,7 @@
       </div>
 
       <div class="cert-card">
-        <div class="cert-icon">🔒</div>
+        <div class="cert-icon">🔐</div>
         <div>
           <div class="cert-name">HIPAA Compliance Training</div>
           <div class="cert-issuer">Miami Dade College Nursing Program</div>
@@ -757,7 +752,7 @@
 <section id="resume">
   <div class="container">
     <div class="section-header">
-      <span class="section-eyebrow">08 &nbsp;/&nbsp; Resume & Contact</span>
+      <span class="section-eyebrow">08 &nbsp;/&nbsp; Contact</span>
       <div class="section-line"></div>
     </div>
     <div class="resume-inner">
@@ -771,7 +766,6 @@
         </div>
       </div>
       <div class="btn-group">
-        <a class="btn btn-primary" href="#">⬇ Download Resume (PDF)</a>
         <a class="btn btn-outline" href="mailto:nsbryant05sasp@gmail.com">✉ Send Email</a>
       </div>
     </div>
